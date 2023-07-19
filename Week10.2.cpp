@@ -20,7 +20,7 @@ class Worker{
         this->months = 0;
         this->salary=0;
     }
-    Worker(const string nameVal, const int ageVal, const int monthsVal, const double salaryVal):name(nameVal), age(ageVal), months(monthsVal), salary(salaryVal){};
+    Worker(const string &nameVal, const int ageVal, const int monthsVal, const double salaryVal):name(nameVal), age(ageVal), months(monthsVal), salary(salaryVal){};
     Worker(const Worker &w){
         this->name = w.name;
         this->age = w.age;
