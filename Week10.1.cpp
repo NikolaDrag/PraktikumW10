@@ -14,7 +14,7 @@ class Ticket{
         this->price =0;
         this->nameOfEvent = "-";
     };
-    Ticket(const double priceVal, const string nameVal){
+    Ticket(const double priceVal, const string &nameVal){
         this->price = priceVal;
         this->nameOfEvent = nameVal;
     }
@@ -48,7 +48,7 @@ class PriviligedTicket : public Ticket {
     PriviligedTicket(){
         this->guestName = "-";
     }
-    PriviligedTicket(const double priceVal, const string nameVal,const string guestNameVal):Ticket(priceVal/2, nameVal),guestName(guestNameVal){};
+    PriviligedTicket(const double priceVal, const string &nameVal,const string &guestNameVal):Ticket(priceVal/2, nameVal),guestName(guestNameVal){};
     PriviligedTicket(const PriviligedTicket &pt):Ticket(pt),guestName(pt.guestName){};
     PriviligedTicket &operator=(const PriviligedTicket &pt){
         if(this != &pt){
@@ -71,7 +71,7 @@ class GroupTicket : public Ticket {
     GroupTicket(){
         this->numberPeople = 0;
     }
-    GroupTicket(const double priceVal, const string nameVal,const int numberPeopleVal):Ticket((priceVal-2)*numberPeopleVal, nameVal),numberPeople(numberPeopleVal){};
+    GroupTicket(const double priceVal, const string &nameVal,const int numberPeopleVal):Ticket((priceVal-2)*numberPeopleVal, nameVal),numberPeople(numberPeopleVal){};
     GroupTicket(const GroupTicket &gt):Ticket(gt),numberPeople(gt.numberPeople){};
     GroupTicket &operator=(const GroupTicket &gt){
         if(this != &gt){
@@ -87,7 +87,7 @@ class GroupTicket : public Ticket {
     };
 };
 
-void reference(const double pVal, const string eventVal,const Ticket* tickets,const int numberOfTickets){
+void reference(const double pVal, const string &eventVal,const Ticket* tickets,const int numberOfTickets){
     int guestCount =0;
     double sumPrice =0;
     for(int i=0;numberOfTickets > i;i++){
